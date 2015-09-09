@@ -3,6 +3,16 @@ Perl script to convert .docx files to plain text.
 
 Originally from [http://docx2txt.sourceforge.net/](http://docx2txt.sourceforge.net/) but copied to github.
 
+## QUICK INSTALL
+
+```
+sudo curl https://cdn.rawgit.com/arthursucks/docx2txt/master/docx2txt.pl -o /usr/local/bin/docx2txt.pl
+```
+
+```
+sudo chmod +x /usr/local/bin/docx2txt.pl
+```
+
 FROM THE ORIGINAL SITE:
 -----------------------
 
