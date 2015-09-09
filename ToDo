@@ -1,0 +1,13 @@
+1. Heuristics based cleanup of damaged document content. [Looking for more test samples.]
+
+2. Extract images. Now there has been a user request as well. [target pre v2.0]
+3. Handle footnotes.
+4. Improve table and short line justification handling. Ideally table columns
+   in a single row should be separated by pipe. Short line justification needs
+   to be adjusted to situations when tab occurs in line. A quick look into these
+   issues suggests that logic/code will need to be reorganised to handle these.
+
+5. Create a simple manpage, hopefully after resolving footnote and list issues.
+6. Implement simple state-machine for speedup [partially worked towards it].
+7. XML parsing??? and making things more efficient. When it has matured enough,
+   may be a C/C++ version should be looked into.
