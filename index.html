@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docx2txt by arthursucks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Docx2txt</h1>
+      <h2 class="project-tagline">Perl script to convert .docx files to plain text.</h2>
+      <a href="https://github.com/arthursucks/docx2txt" class="btn">View on GitHub</a>
+      <a href="https://github.com/arthursucks/docx2txt/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/arthursucks/docx2txt/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="docx2txt" class="anchor" href="#docx2txt" aria-hidden="true"><span class="octicon octicon-link"></span></a>docx2txt</h1>
+
+<p>Perl script to convert .docx files to plain text.</p>
+
+<p>Originally from <a href="http://docx2txt.sourceforge.net/">http://docx2txt.sourceforge.net/</a> but copied to github.</p>
+
+<h2>
+<a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>QUICK INSTALL</h2>
+
+<pre><code>sudo curl https://cdn.rawgit.com/arthursucks/docx2txt/master/docx2txt.pl -o /usr/local/bin/docx2txt.pl
+</code></pre>
+
+<pre><code>sudo chmod +x /usr/local/bin/docx2txt.pl
+</code></pre>
+
+<h2>
+<a id="from-the-original-site" class="anchor" href="#from-the-original-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>FROM THE ORIGINAL SITE:</h2>
+
+<p><strong>docx2txt</strong> is a perl based command line utility to convert Microsoft Office(Tm) Docx documents to equivalent Text documents. Latest version supports following features during text extraction.</p>
+
+<ul>
+<li>Character conversions (" ' &lt; &amp; &gt; - ... fraction and some mathematical symbols etc.); currency characters are converted to respective names like Euro.</li>
+<li>Capitalisation of text blocks.</li>
+<li>Center and right justification of text fitting in a line of (configurable) 80 columns.</li>
+<li>Horizontal ruler, line breaks, paragraphs separation, tabs</li>
+<li>Indicating hyperlinked text along with the hyperlink. (configurable)</li>
+<li>Handling (bullet, decimal, letter, roman) lists along with (attempt at) indentation.</li>
+</ul>
+
+<p>Other non-text-extraction features are mentioned below.</p>
+
+<ul>
+<li>Installation via Makefile/BSDmakefile and Windows batch file.</li>
+<li>Provision for installation of script files and configuration file in separate directories when installing via make files.</li>
+<li> Wrapper shell and batch scripts for easy usage.</li>
+<li>Perl script supports input/output from/to stdin/stdout, as well as input/output redirection from files.</li>
+<li>Provision for separate system wide and user configuration files.</li>
+<li>Works with unzipping utilities like Unzip (Windows port), 7z (7-Zip), pkzipc (PKZip), wzunzip (WinZip), and CakeCmd.</li>
+<li>Basically it requires a commandline unzipping program that can silently extract single file from zip archive to console/standard output/pipe.</li>
+<li>Also works with directory holding the unzipped content of a .docx file.</li>
+<li>This feature is useful for users if they do not have a commandline unzipper meeting above requirement.</li>
+</ul>
+
+<p>It is released under GPLv3. For further details and plans, please refer to the documentation in the released package.</p>
+
+<h2>
+<a id="dealing-with-corrupted-docx-files" class="anchor" href="#dealing-with-corrupted-docx-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with Corrupted Docx files</h2>
+
+<p>Since CakeCmd can extract files from a corrupted zip archive in many cases that popular unzippers do not extract (eg. in case of some CRC failure), so using CakeCmd unzipper directly/indirectly you can extract text content from a damaged docx file via this script, as long as the relevant xml files holding the text information are extracted with non-zero content from corresponding docx file. Because CakeCmd is ignoring some data sanity checks on the archive, at times these extracted files have quite some amount of junk in them.</p>
+
+<p>You can also try to repair corrupted docx file using programs like Zip (Windows port), pkzipc (PKZip), ALZipCon, and winrar. GUI version of winrar gives an option to keep broken extracted files as well.</p>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<ul>
+<li>CVS @ Souceforge.net</li>
+<li>v1.4 (May 15, 2014) | v1.3 (April 07, 2014) | v1.2 (January 15, 2012) | v1.1 (December 11, 2011) | v1.0 (October 04, 2009)</li>
+<li>v0.4 (Septemer 06, 2009) | v0.3 (Septemer 23, 2008) | v0.2 (August 15, 2008) | v0.1 (August 10, 2008)</li>
+</ul>
+
+<h2>
+<a id="viewing-docx-files" class="anchor" href="#viewing-docx-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Viewing Docx files</h2>
+
+<p>Using MC (Midnight Commander)</p>
+
+<p>MC (Midnight Commander) fans can add following binding in ~/.mc/bindings and view the text content of .docx file by hitting F3 function key after selecting the concerned docx document.</p>
+
+<pre><code># Microsoft .docx Document
+regex/\.(docx|DOCX|Docx)$
+ View=%view{ascii} docx2txt.pl %f -
+</code></pre>
+
+<h2>
+<a id="using-vim-editor" class="anchor" href="#using-vim-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using VIm Editor</h2>
+
+<p>You can add following lines in your ~/.vimrc to view the text content of a .docx file directly when using vim.</p>
+
+<pre><code>"use docx2txt.pl to allow VIm to view the text content of a .docx file directly.
+autocmd BufReadPre *.docx set ro
+autocmd BufReadPost *.docx %!docx2txt.pl 
+</code></pre>
+
+<p>Note that above .vimrc addition will allow you to view the text content of .docx files specified as command line argument to vim, but not of those read using ":r file.docx".</p>
+
+<p>Please refer to <a href="http://vimdoc.sourceforge.net/htmldoc/autocmd.html">http://vimdoc.sourceforge.net/htmldoc/autocmd.html</a> for more information on autocmd.</p>
+
+<h2>
+<a id="using-emacs-editor" class="anchor" href="#using-emacs-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Emacs Editor</h2>
+
+<p>You can add following lines in your ~/.emacs file to view the text content of a .docx file directly when using emacs.</p>
+
+<pre><code>(add-to-list 'auto-mode-alist '("\\.docx\\'" . docx2txt))
+
+(defun docx2txt ()
+ "Run docx2txt on the entire buffer."
+ (shell-command-on-region (point-min) (point-max) "docx2txt.pl" t t))
+</code></pre>
+
+<p><strong>Be warned</strong> that with above ~/.emacs code addition, if you happen to save the buffer/file, it will overwrite the .docx file with the text content.</p>
+
+<p>Please explore "Filters -- making things readable:" section at <a href="http://www.emacswiki.org/emacs/CategoryExternalUtilities">http://www.emacswiki.org/emacs/CategoryExternalUtilities</a> for more ways to view .docx file text content directly in emacs.</p>
+
+<h2>
+<a id="who-is-using-it" class="anchor" href="#who-is-using-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who is using it</h2>
+
+<p>In case you have been using this tool directly/indirectly for non-personal work, please inform me about it with relevant URL (if available) so that a mention can be made here.</p>
+
+<p>Wading through initial google search result pages reveals that this tool is directly/indirectly useful atleast in following cases.</p>
+
+<ul>
+<li>Corrupt Office File Text/Data Extracting Web Service | Corrupt Office Suite Text/Data Extracting Service - BETA - Paul had informed me about these in mail communication.</li>
+<li>eZimDMS</li>
+<li>Kino Search Contrib | Twiki?</li>
+<li>MPP?</li>
+</ul>
+
+<p>Some users have been kind enough to inform about how they have used this utility in their work.</p>
+
+<ul>
+<li>"I've incorporated docx2txt into a system of hot folders I've implemented here." - Ian Hughson, Oxford University Press</li>
+</ul>
+
+<h2>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<p>In case you want to request features, report bugs, submit patches or just share your views on the project, please visit project summary page at SourceForge.net. A sample .docx file depicting the requested-feature/issue and the corresponding text file generated by Microsoft Office(Tm), with character substitution enabled, will be a helpful resource in implementing new features and fixing the bugs.</p>
+
+<p>In case you want to pay for the development of specific features that you need, or customisation of docx2txt to suit your needs, please contact the docx2txt author (Sandeep Kumar) for details. </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/arthursucks/docx2txt">Docx2txt</a> is maintained by <a href="https://github.com/arthursucks">arthursucks</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
