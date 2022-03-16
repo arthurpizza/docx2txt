@@ -285,7 +285,7 @@ die $usage if (@ARGV > 2 || $ARGV[0] eq '-h');
 my %config;
 
 if (-f "docx2txt.config") {
-    %config = do 'docx2txt.config';
+    %config = do './docx2txt.config';
 } elsif (-f "$userConfigDir/docx2txt.config") {
     %config = do "$userConfigDir/docx2txt.config";
 } elsif (-f "$systemConfigDir/docx2txt.config") {
